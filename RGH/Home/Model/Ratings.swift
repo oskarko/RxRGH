@@ -8,7 +8,7 @@
 import Foundation
 
 struct Ratings: Decodable {
-    let listOfRatings: [RatingHotel]
+    var listOfRatings: [RatingHotel]
 
     enum CodingKeys: String, CodingKey {
         case listOfRatings = "hotels"
