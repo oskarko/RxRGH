@@ -1,0 +1,6 @@
+framework module Pods_RGH_RGHUITests {
+  umbrella header "Pods-RGH-RGHUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
