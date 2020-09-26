@@ -14,10 +14,18 @@
 		E25B1B81251F298C00BA5C34 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B1B80251F298C00BA5C34 /* SceneDelegate.swift */; };
 		E25B1B88251F298F00BA5C34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E25B1B87251F298F00BA5C34 /* Assets.xcassets */; };
 		E25B1B8B251F298F00BA5C34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E25B1B89251F298F00BA5C34 /* LaunchScreen.storyboard */; };
-		E25B1B96251F298F00BA5C34 /* RGHTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B1B95251F298F00BA5C34 /* RGHTests.swift */; };
 		E25B1BA1251F299000BA5C34 /* RGHUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B1BA0251F299000BA5C34 /* RGHUITests.swift */; };
 		E25D4CAB251F565100B4DCC2 /* ManagerServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25D4CAA251F565100B4DCC2 /* ManagerServices.swift */; };
 		E25D4CE0251F827200B4DCC2 /* Ratings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25D4CDF251F827200B4DCC2 /* Ratings.swift */; };
+		E262D624251FE99800687BC6 /* FakeManagerServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E262D623251FE99800687BC6 /* FakeManagerServices.swift */; };
+		E262D628251FE9AF00687BC6 /* ManagerServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25D4CAA251F565100B4DCC2 /* ManagerServices.swift */; };
+		E262D62D251FEAD500687BC6 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E262D62C251FEAD500687BC6 /* HomeViewModelTests.swift */; };
+		E262D63B251FEB0B00687BC6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E281A00D251F2D4F00D24C67 /* HomeViewModel.swift */; };
+		E262D698251FF12700687BC6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2819FFF251F2CFD00D24C67 /* HomeView.swift */; };
+		E262D69C251FF12C00687BC6 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E281A020251F2EE300D24C67 /* HomeRouter.swift */; };
+		E262D6AE251FF16300687BC6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E281A017251F2DED00D24C67 /* Constants.swift */; };
+		E262D6C0251FF18B00687BC6 /* CustomHotelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E281A006251F2D3100D24C67 /* CustomHotelCell.swift */; };
+		E262D6EC251FFF1900687BC6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E262D6EB251FFF1900687BC6 /* Utils.swift */; };
 		E26DE932251F9B57001EBC01 /* HotelsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26DE931251F9B57001EBC01 /* HotelsTests.swift */; };
 		E26DE939251F9BD9001EBC01 /* Hotels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E281A012251F2DCC00D24C67 /* Hotels.swift */; };
 		E26DE93D251F9E59001EBC01 /* Ratings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25D4CDF251F827200B4DCC2 /* Ratings.swift */; };
@@ -64,13 +72,15 @@
 		E25B1B8A251F298F00BA5C34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E25B1B8C251F298F00BA5C34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E25B1B91251F298F00BA5C34 /* RGHTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RGHTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E25B1B95251F298F00BA5C34 /* RGHTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGHTests.swift; sourceTree = "<group>"; };
 		E25B1B97251F298F00BA5C34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E25B1B9C251F299000BA5C34 /* RGHUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RGHUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E25B1BA0251F299000BA5C34 /* RGHUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGHUITests.swift; sourceTree = "<group>"; };
 		E25B1BA2251F299000BA5C34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E25D4CAA251F565100B4DCC2 /* ManagerServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerServices.swift; sourceTree = "<group>"; };
 		E25D4CDF251F827200B4DCC2 /* Ratings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ratings.swift; sourceTree = "<group>"; };
+		E262D623251FE99800687BC6 /* FakeManagerServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeManagerServices.swift; sourceTree = "<group>"; };
+		E262D62C251FEAD500687BC6 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		E262D6EB251FFF1900687BC6 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		E26DE931251F9B57001EBC01 /* HotelsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelsTests.swift; sourceTree = "<group>"; };
 		E2819FFF251F2CFD00D24C67 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E281A000251F2CFD00D24C67 /* HomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeView.xib; sourceTree = "<group>"; };
@@ -175,7 +185,8 @@
 			isa = PBXGroup;
 			children = (
 				E26DE930251F9B35001EBC01 /* Home */,
-				E25B1B95251F298F00BA5C34 /* RGHTests.swift */,
+				E262D6EA251FFEFC00687BC6 /* Resources */,
+				E262D6F32520006900687BC6 /* NetworkManager */,
 				E25B1B97251F298F00BA5C34 /* Info.plist */,
 			);
 			path = RGHTests;
@@ -198,6 +209,22 @@
 			path = NetworkManager;
 			sourceTree = "<group>";
 		};
+		E262D6EA251FFEFC00687BC6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E262D6EB251FFF1900687BC6 /* Utils.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E262D6F32520006900687BC6 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				E262D623251FE99800687BC6 /* FakeManagerServices.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
 		E26DE92D251F9B0B001EBC01 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +243,7 @@
 		E26DE92F251F9B2A001EBC01 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E262D62C251FEAD500687BC6 /* HomeViewModelTests.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -541,10 +569,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E262D698251FF12700687BC6 /* HomeView.swift in Sources */,
+				E262D6AE251FF16300687BC6 /* Constants.swift in Sources */,
+				E262D624251FE99800687BC6 /* FakeManagerServices.swift in Sources */,
+				E262D62D251FEAD500687BC6 /* HomeViewModelTests.swift in Sources */,
 				E26DE93D251F9E59001EBC01 /* Ratings.swift in Sources */,
+				E262D6EC251FFF1900687BC6 /* Utils.swift in Sources */,
+				E262D63B251FEB0B00687BC6 /* HomeViewModel.swift in Sources */,
 				E26DE932251F9B57001EBC01 /* HotelsTests.swift in Sources */,
+				E262D6C0251FF18B00687BC6 /* CustomHotelCell.swift in Sources */,
+				E262D628251FE9AF00687BC6 /* ManagerServices.swift in Sources */,
 				E26DE939251F9BD9001EBC01 /* Hotels.swift in Sources */,
-				E25B1B96251F298F00BA5C34 /* RGHTests.swift in Sources */,
+				E262D69C251FF12C00687BC6 /* HomeRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

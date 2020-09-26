@@ -15,7 +15,7 @@ class HomeView: UIViewController {
     @IBOutlet private weak var tableview: UITableView!
 
     private var router = HomeRouter()
-    private var viewModel = HomeViewModel()
+    private var viewModel = HomeViewModel(managerServices: ManagerServices())
     private var disposeBag = DisposeBag()
     private var hotels = [Hotel]()
     private var filteredHotels = [Hotel]()

@@ -11,13 +11,18 @@ import RxSwift
 class HomeViewModel {
     private weak var view: HomeView?
     private var router: HomeRouter?
-    private var managerServices = ManagerServices()
+    private var managerServices: ManagerServices
 
     let title: String = "Hotels"
+
+    init(managerServices: ManagerServices) {
+        self.managerServices = managerServices
+    }
 
     func bind(view: HomeView, router: HomeRouter) {
         self.view = view
         self.router = router
+
 
         // Binding the router with the view
         self.router?.setSourceView(view)
