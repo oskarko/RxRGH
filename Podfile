@@ -8,6 +8,7 @@ target 'RGH' do
   # Pods for RGH
     pod 'RxSwift'
     pod 'RxCocoa'
+    pod 'SDWebImage'
 
   target 'RGHTests' do
     inherit! :search_paths

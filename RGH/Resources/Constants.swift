@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+struct Constants {
+
+    struct URL {
+        static let main = "http://www.json-generator.com/"
+    }
+
+    struct Endpoints {
+        static let urlListHotels = "api/json/get/cgeZJtuRiW?indent=2"
+        static let urlListRatings = "api/json/get/cffziCNmPS?indent=2"
+    }
+}

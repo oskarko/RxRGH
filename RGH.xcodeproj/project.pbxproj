@@ -16,6 +16,8 @@
 		E25B1B8B251F298F00BA5C34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E25B1B89251F298F00BA5C34 /* LaunchScreen.storyboard */; };
 		E25B1B96251F298F00BA5C34 /* RGHTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B1B95251F298F00BA5C34 /* RGHTests.swift */; };
 		E25B1BA1251F299000BA5C34 /* RGHUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B1BA0251F299000BA5C34 /* RGHUITests.swift */; };
+		E25D4CAB251F565100B4DCC2 /* ManagerServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25D4CAA251F565100B4DCC2 /* ManagerServices.swift */; };
+		E25D4CE0251F827200B4DCC2 /* Ratings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25D4CDF251F827200B4DCC2 /* Ratings.swift */; };
 		E281A001251F2CFD00D24C67 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2819FFF251F2CFD00D24C67 /* HomeView.swift */; };
 		E281A002251F2CFD00D24C67 /* HomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E281A000251F2CFD00D24C67 /* HomeView.xib */; };
 		E281A008251F2D3100D24C67 /* CustomHotelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E281A006251F2D3100D24C67 /* CustomHotelCell.swift */; };
@@ -64,6 +66,8 @@
 		E25B1B9C251F299000BA5C34 /* RGHUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RGHUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E25B1BA0251F299000BA5C34 /* RGHUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGHUITests.swift; sourceTree = "<group>"; };
 		E25B1BA2251F299000BA5C34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E25D4CAA251F565100B4DCC2 /* ManagerServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerServices.swift; sourceTree = "<group>"; };
+		E25D4CDF251F827200B4DCC2 /* Ratings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ratings.swift; sourceTree = "<group>"; };
 		E2819FFF251F2CFD00D24C67 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E281A000251F2CFD00D24C67 /* HomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeView.xib; sourceTree = "<group>"; };
 		E281A006251F2D3100D24C67 /* CustomHotelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHotelCell.swift; sourceTree = "<group>"; };
@@ -130,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				E25B1B7D251F298C00BA5C34 /* RGH */,
+				E25D4CA9251F562E00B4DCC2 /* NetworkManager */,
 				E25B1B94251F298F00BA5C34 /* RGHTests */,
 				E25B1B9F251F299000BA5C34 /* RGHUITests */,
 				E25B1B7C251F298C00BA5C34 /* Products */,
@@ -180,6 +185,14 @@
 			path = RGHUITests;
 			sourceTree = "<group>";
 		};
+		E25D4CA9251F562E00B4DCC2 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				E25D4CAA251F565100B4DCC2 /* ManagerServices.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
 		E2819FF1251F2A1A00D24C67 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				E281A012251F2DCC00D24C67 /* Hotels.swift */,
+				E25D4CDF251F827200B4DCC2 /* Ratings.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -473,11 +487,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E25D4CAB251F565100B4DCC2 /* ManagerServices.swift in Sources */,
 				E281A00E251F2D4F00D24C67 /* HomeViewModel.swift in Sources */,
 				E281A013251F2DCC00D24C67 /* Hotels.swift in Sources */,
 				E281A001251F2CFD00D24C67 /* HomeView.swift in Sources */,
 				E25B1B7F251F298C00BA5C34 /* AppDelegate.swift in Sources */,
 				E281A008251F2D3100D24C67 /* CustomHotelCell.swift in Sources */,
+				E25D4CE0251F827200B4DCC2 /* Ratings.swift in Sources */,
 				E281A021251F2EE300D24C67 /* HomeRouter.swift in Sources */,
 				E25B1B81251F298C00BA5C34 /* SceneDelegate.swift in Sources */,
 				E281A018251F2DED00D24C67 /* Constants.swift in Sources */,
@@ -578,7 +594,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -633,7 +649,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

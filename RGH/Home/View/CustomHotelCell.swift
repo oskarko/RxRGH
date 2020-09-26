@@ -9,15 +9,9 @@ import UIKit
 
 class CustomHotelCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    @IBOutlet weak var imageview: UIImageView!
+    @IBOutlet weak var distanceLbl: UILabel!
+    @IBOutlet weak var ratingview: UIImageView!
+    @IBOutlet weak var nameLbl: UILabel!
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
 }
