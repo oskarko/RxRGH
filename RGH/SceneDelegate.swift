@@ -3,6 +3,7 @@
 //  RGH
 //
 //  Created by Oscar Rodriguez Garrucho on 26/09/2020.
+//  Copyright © 2020 Little Monster. All rights reserved.
 //
 
 import UIKit

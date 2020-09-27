@@ -3,11 +3,11 @@
 //  RGH
 //
 //  Created by Oscar Rodriguez Garrucho on 26/09/2020.
+//  Copyright © 2020 Little Monster. All rights reserved.
 //
 
 import RxCocoa
 import RxSwift
-import SDWebImage
 import UIKit
 
 class HomeView: UIViewController {
@@ -19,9 +19,11 @@ class HomeView: UIViewController {
     private var router = HomeRouter()
     private var viewModel = HomeViewModel(managerServices: ManagerServices())
     private var disposeBag = DisposeBag()
-    private var hotels = [Hotel]()
+    private var hotels: Observable<[Hotel]>!
     private var ratings = [RatingHotel]()
-    private var filteredHotels = [Hotel]()
+    private var originalHotels = [Hotel]()
+
+    private var source = PublishSubject<[Hotel]>()
 
     lazy var searchController: UISearchController = ({
         let controller = UISearchController(searchResultsController: nil)
@@ -45,8 +47,7 @@ class HomeView: UIViewController {
 
         tableview.contentInsetAdjustmentBehavior = .never
         tableview.tableFooterView = UIView()
-        tableview.delegate = self
-        tableview.dataSource = self
+
         configureTableview()
         manageSearchBarController()
         setUpRx()
@@ -63,9 +64,9 @@ class HomeView: UIViewController {
             .subscribeOn(MainScheduler.instance)
             .subscribe(
                 onNext: { hotels, ratings in
-                    self.hotels = hotels
+                    self.originalHotels = hotels
                     self.ratings = ratings
-                    self.reloadTableview()
+                    self.source.onNext(hotels)
                 }, onError: { error in
                     print("Unknown error: " + error.localizedDescription)
                 })
@@ -88,22 +89,39 @@ class HomeView: UIViewController {
     }
 
     private func setUpRx() {
+        hotels = source.asObservable()
+
         searchController.searchBar.rx.text
             .orEmpty
             .distinctUntilChanged()
             .subscribe(onNext: { (result) in
-                self.filteredHotels = self.hotels.filter({ hotel in
-                    self.reloadTableview()
+                let filteredHotels = self.originalHotels.filter({ hotel in
                     return hotel.name.contains(result)
                 })
+                self.source.onNext(filteredHotels)
             })
             .disposed(by: disposeBag)
-    }
 
-    private func reloadTableview() {
-        DispatchQueue.main.async {
-            self.tableview.reloadData()
+        tableview.dataSource = nil
+        hotels.bind(to: tableview.rx.items(cellIdentifier: "CustomHotelCell",
+                                           cellType: CustomHotelCell.self)) {
+            index, hotel, cell in
+
+            let ratedHotels = self.ratings.filter({ ratingHotel in
+                return hotel.code == ratingHotel.code
+            })
+
+            cell.configure(with: hotel,
+                           ratingHotel: ratedHotels.count > 0 ? ratedHotels[0] : nil)
         }
+        .disposed(by: disposeBag)
+
+        tableview.rx.modelSelected(Hotel.self).subscribe(onNext: {
+            hotel in
+
+            self.viewModel.makeDetailsView(hotel: hotel)
+        })
+        .disposed(by: disposeBag)
     }
 }
 
@@ -111,62 +129,13 @@ class HomeView: UIViewController {
 
 extension HomeView: UISearchControllerDelegate {
     func searchbarCancelButtonClicked(_ searchBar: UISearchBar) {
+        source.onNext(originalHotels)
         searchController.isActive = false
-        reloadTableview()
     }
 
     func willDismissSearchController(_ searchController: UISearchController) {
-        reloadTableview()
-    }
-}
-
-// MARK: - UITableViewDataSource
-
-/* The best approach is creating an Observable array to bind it
- directly with the tableview and avoid all this boilerplate code
- such as UITableViewDataSource && UITableViewDelegate.*/
-extension HomeView: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchController.isActive && searchController.searchBar.text != "" ?
-            filteredHotels.count : hotels.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell =
-            tableView.dequeueReusableCell(withIdentifier:"CustomHotelCell") as! CustomHotelCell
-
-        let hotel: Hotel = searchController.isActive && searchController.searchBar.text != "" ?
-            filteredHotels[indexPath.row] : hotels[indexPath.row]
-
-        cell.nameLbl.text = hotel.name
-        cell.imageview.sd_setImage(with: URL(string: hotel.image.url),
-                                   placeholderImage: UIImage(named: "hotel"))
-        cell.distanceLbl.text =
-            String(format: "%.2f", hotel.distance.miles) + " miles from downtown"
-
-        let ratedHotels = self.ratings.filter({ ratingHotel in
-            return hotel.code == ratingHotel.code
-        })
-        if ratedHotels.count > 0 {
-            cell.ratingview.image = UIImage(named: "\(ratedHotels[0].rating.bubbleRating)")
+        DispatchQueue.main.async {
+            self.source.onNext(self.originalHotels)
         }
-        cell.ratingview.isHidden = ratedHotels.count == 0
-
-        return cell
-    }
-}
-
-// MARK: - UITableViewDelegate
-
-extension HomeView: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 230
-    }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let hotel: Hotel = searchController.isActive && searchController.searchBar.text != "" ?
-            filteredHotels[indexPath.row] : hotels[indexPath.row]
-
-        viewModel.makeDetailsView(hotel: hotel)
     }
 }

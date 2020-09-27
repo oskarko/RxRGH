@@ -3,6 +3,7 @@
 //  RGHTests
 //
 //  Created by Oscar Rodriguez Garrucho on 27/09/2020.
+//  Copyright © 2020 Little Monster. All rights reserved.
 //
 
 import Swift
