@@ -28,6 +28,9 @@ class HomeRouter {
 
     func navigateToDetailsView(hotel: Hotel) {
         print("Selected hotel: \(hotel.name)")
+
+        /* Push to any view here */
+        
 //        let detailsView = DetailsRouter(hotel: hotel).viewController
 //        sourceView?.navigationController?.pushViewController(detailsView, animated: true)
     }

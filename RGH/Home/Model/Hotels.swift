@@ -25,7 +25,6 @@ struct Hotel: Decodable {
     let image: Image
     let address: String
     let services: [Service]
-    var rating: Rating?
 
     enum CodingKeys: String, CodingKey {
         case code
@@ -37,7 +36,6 @@ struct Hotel: Decodable {
         case image
         case address
         case services
-        case rating
     }
 }
 
