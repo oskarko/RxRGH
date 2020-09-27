@@ -45,9 +45,6 @@ class HomeView: UIViewController {
         navigationItem.title = viewModel.title
         navigationController?.navigationBar.prefersLargeTitles = true
 
-        tableview.contentInsetAdjustmentBehavior = .never
-        tableview.tableFooterView = UIView()
-
         configureTableview()
         manageSearchBarController()
         setUpRx()
@@ -76,6 +73,9 @@ class HomeView: UIViewController {
     // MARK: - Helpers
 
     private func configureTableview() {
+        tableview.contentInsetAdjustmentBehavior = .never
+        tableview.tableFooterView = UIView()
+        tableview.accessibilityIdentifier = "tableview"
         tableview.rowHeight = UITableView.automaticDimension
         tableview.register(UINib(nibName: "CustomHotelCell", bundle: nil),
                            forCellReuseIdentifier: "CustomHotelCell")
